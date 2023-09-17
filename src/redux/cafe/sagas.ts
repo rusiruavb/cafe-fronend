@@ -68,6 +68,16 @@ function* listCafes({ payload }: PayloadAction<string>) {
 
 function* updateCafe({ payload }: PayloadAction<UpdateCafeInput>) {
   try {
+    const formData = new FormData();
+    formData.append('name', payload.name);
+    formData.append('description', payload.description);
+    formData.append('location', payload.location);
+    formData.append('cafeId', payload.cafeId.toString());
+
+    if (payload.logo) {
+      formData.append('logo', payload.logo[0]);
+    }
+
     const response: AxiosResponse<CafeType> = yield axios.put(
       `${process.env.REACT_APP_API_ENDPOINT}/cafe`,
       payload

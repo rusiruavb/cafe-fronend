@@ -7,8 +7,11 @@ import { Box } from '@mui/material';
 import moment from 'moment';
 import CafeName from '../components/CafeName';
 import CafeAction from '../components/CafeAction';
+import { useNonInitialEffect } from '../../../hooks';
+import { useNavigate } from 'react-router-dom';
 
 const Cafe: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cafeSlice = useSelector((state: StateType) => state.cafeSlice);
   const [rowData, setRowData] = useState<any[]>([]);
@@ -36,6 +39,10 @@ const Cafe: React.FC = () => {
       setRowData(cafeData);
     }
   }, [cafeSlice.list.data]);
+
+  useNonInitialEffect(() => {
+    navigate('/cafe/update');
+  }, [cafeSlice.updateCafeInfo.id]);
 
   return (
     <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>

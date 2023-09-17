@@ -36,6 +36,9 @@ export type CafeStateType = {
     loading: boolean;
     error: CafeError | null;
   };
+  updateCafeInfo: {
+    id: number | null;
+  };
 };
 
 export type CreateCafeInput = {

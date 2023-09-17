@@ -28,6 +28,9 @@ const initialState: CafeStateType = {
     loading: false,
     error: null,
   },
+  updateCafeInfo: {
+    id: null,
+  },
 };
 
 const cafeSlice = createSlice({
@@ -77,6 +80,12 @@ const cafeSlice = createSlice({
       state.list.error = payload;
     },
     // update cafe
+    setUpdateCafeInfo: (
+      state: CafeStateType,
+      { payload }: PayloadAction<number | null>
+    ) => {
+      state.updateCafeInfo.id = payload;
+    },
     updateCafeAction: (
       state: CafeStateType,
       {}: PayloadAction<UpdateCafeInput>
@@ -95,6 +104,7 @@ const cafeSlice = createSlice({
       state: CafeStateType,
       { payload }: PayloadAction<any>
     ) => {
+      console.log(payload);
       state.update.loading = false;
       state.update.error = payload;
     },
@@ -127,6 +137,7 @@ export const {
   listCafesAction,
   listCafesSuccessAction,
   listCafesErrorAction,
+  setUpdateCafeInfo,
   updateCafeAction,
   updateCafeSuccessAction,
   updateCafeErrorAction,

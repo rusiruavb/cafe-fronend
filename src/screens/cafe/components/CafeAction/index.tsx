@@ -2,8 +2,16 @@ import { Box, Button } from '@mui/material';
 import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setUpdateCafeInfo } from '../../../../redux/cafe/slice';
 
 const TableAction: React.FC = (props: any) => {
+  const dispatch = useDispatch();
+
+  const handleEditCTA = () => {
+    dispatch(setUpdateCafeInfo(props.value.id));
+  };
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row', marginTop: 0.5 }}>
       <Button
@@ -12,6 +20,7 @@ const TableAction: React.FC = (props: any) => {
         startIcon={<EditTwoToneIcon />}
         size="small"
         style={{ borderRadius: 20, marginRight: 5 }}
+        onClick={() => handleEditCTA()}
       >
         Edit
       </Button>
