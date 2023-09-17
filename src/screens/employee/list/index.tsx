@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../../redux/root.reducer';
 import { AgGridReact } from 'ag-grid-react';
-import { Box, Container } from '@mui/material';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import PersonAddAltTwoToneIcon from '@mui/icons-material/PersonAddAltTwoTone';
+import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import moment from 'moment';
 import TableAction from '../../../components/tableaction';
 import { useNonInitialEffect } from '../../../hooks';
@@ -23,6 +25,7 @@ const EmployeeList: React.FC = () => {
   const [rowData, setRowData] = useState<any[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [deleteEmployee, setDeleteEmployee] = useState<EmployeeType>();
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
     dispatch(listEmployeesAction(''));
@@ -84,9 +87,54 @@ const EmployeeList: React.FC = () => {
     dispatch(listEmployeesAction(''));
   }, [employeeSlice.delete.data]);
 
+  const handleSearchCTA = () => {
+    dispatch(listEmployeesAction(searchText));
+  };
+
   return (
     <Container>
       <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: 4,
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
+            <TextField
+              focused
+              variant="filled"
+              label="Search employees by cafe"
+              placeholder="Java Cafe"
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <Button
+              variant="outlined"
+              startIcon={<StorefrontTwoToneIcon />}
+              color="info"
+              style={{ marginLeft: 16 }}
+              onClick={() => handleSearchCTA()}
+            >
+              Search
+            </Button>
+          </Box>
+          <Button
+            variant="outlined"
+            color="info"
+            startIcon={<PersonAddAltTwoToneIcon />}
+            onClick={() => navigate('/employee/create')}
+          >
+            <Typography style={{ textTransform: 'none' }}>
+              Add new Employee
+            </Typography>
+          </Button>
+        </Box>
         <div style={{ width: '100%', height: '100%' }}>
           <div id="grid-wrapper" style={{ width: '100%', height: '70vh' }}>
             <div
@@ -94,7 +142,7 @@ const EmployeeList: React.FC = () => {
                 height: '100%',
                 width: '100%',
               }}
-              className="ag-theme-alpine"
+              className="ag-theme-alpine-dark"
             >
               <AgGridReact
                 defaultColDef={{ resizable: true }}

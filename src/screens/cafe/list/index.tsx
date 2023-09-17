@@ -136,7 +136,7 @@ const Cafe: React.FC = () => {
         <div style={{ width: '100%', height: '100%' }}>
           <div id="grid-wrapper" style={{ width: '100%', height: '600px' }}>
             <div
-              className="ag-theme-alpine"
+              className="ag-theme-alpine-dark"
               style={{
                 height: '100%',
                 width: '100%',
