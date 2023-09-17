@@ -34,17 +34,16 @@ const CafeDialog: React.FC<CafeDialogProps> = ({
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Unsubmitted Changes</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          You have some unsubmitted changes. Do you stil want to cancel the
-          submission
+          {message}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleDialogClose}>No</Button>
+        <Button onClick={handleDialogClose}>{closeText}</Button>
         <Button onClick={handleDialogSubmit} autoFocus>
-          Yes
+          {submitText}
         </Button>
       </DialogActions>
     </Dialog>

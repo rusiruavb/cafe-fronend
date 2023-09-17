@@ -39,6 +39,9 @@ export type CafeStateType = {
   updateCafeInfo: {
     id: number | null;
   };
+  deleteCafeInfo: {
+    id: number | null;
+  };
 };
 
 export type CreateCafeInput = {

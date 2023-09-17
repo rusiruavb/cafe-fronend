@@ -31,6 +31,9 @@ const initialState: CafeStateType = {
   updateCafeInfo: {
     id: null,
   },
+  deleteCafeInfo: {
+    id: null,
+  },
 };
 
 const cafeSlice = createSlice({
@@ -109,6 +112,12 @@ const cafeSlice = createSlice({
       state.update.error = payload;
     },
     // delete cafe
+    setDeleteCafeInfo: (
+      state: CafeStateType,
+      { payload }: PayloadAction<number | null>
+    ) => {
+      state.deleteCafeInfo.id = payload;
+    },
     deleteCafeAction: (
       state: CafeStateType,
       {}: PayloadAction<{ cafeId: number }>
@@ -141,6 +150,7 @@ export const {
   updateCafeAction,
   updateCafeSuccessAction,
   updateCafeErrorAction,
+  setDeleteCafeInfo,
   deleteCafeAction,
   deleteCafeSuccessAction,
   deleteCafeErrorAction,

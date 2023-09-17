@@ -3,13 +3,20 @@ import HighlightOffTwoToneIcon from '@mui/icons-material/HighlightOffTwoTone';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setUpdateCafeInfo } from '../../../../redux/cafe/slice';
+import {
+  setDeleteCafeInfo,
+  setUpdateCafeInfo,
+} from '../../../../redux/cafe/slice';
 
 const TableAction: React.FC = (props: any) => {
   const dispatch = useDispatch();
 
   const handleEditCTA = () => {
     dispatch(setUpdateCafeInfo(props.value.id));
+  };
+
+  const handleDeleteCTA = () => {
+    dispatch(setDeleteCafeInfo(props.value.id));
   };
 
   return (
@@ -30,6 +37,7 @@ const TableAction: React.FC = (props: any) => {
         startIcon={<HighlightOffTwoToneIcon />}
         size="small"
         style={{ borderRadius: 20 }}
+        onClick={() => handleDeleteCTA()}
       >
         Delete
       </Button>
