@@ -27,7 +27,7 @@ function* createUser({ payload }: PayloadAction<CreateEmployeeInput>) {
   try {
     const response: AxiosResponse<EmployeeType> = yield axios.post(
       `${process.env.REACT_APP_API_ENDPOINT}/employee`,
-      { payload }
+      { ...payload }
     );
     yield put(createEmployeeSuccessAction(response.data));
   } catch (error) {

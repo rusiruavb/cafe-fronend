@@ -18,7 +18,7 @@ const TextInput: React.FC<TextInputProps> = (props) => {
   return (
     <TextField
       {...props.register(props.name, props.validationSchema)}
-      variant="filled"
+      variant="outlined"
       label={props.label}
       helperText={props.errors && props.errors[props.name]?.message}
       FormHelperTextProps={{ style: { marginLeft: 0 } }}

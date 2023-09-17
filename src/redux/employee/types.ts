@@ -49,6 +49,12 @@ export type EmployeeStateType = {
     loading: boolean;
     error: EmployeeError | null;
   };
+  updateEmployeeInfo: {
+    id: number | null;
+  };
+  deleteEmployeeInfo: {
+    id: number | null;
+  };
 };
 
 export type CreateEmployeeInput = {

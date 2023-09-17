@@ -29,6 +29,12 @@ const initialState: EmployeeStateType = {
     loading: false,
     error: null,
   },
+  updateEmployeeInfo: {
+    id: null,
+  },
+  deleteEmployeeInfo: {
+    id: null,
+  },
 };
 
 const employeeSlice = createSlice({
@@ -81,6 +87,12 @@ const employeeSlice = createSlice({
       state.list.error = payload;
     },
     // update employee
+    setUpdateEmployeeInfo: (
+      state: EmployeeStateType,
+      { payload }: PayloadAction<number | null>
+    ) => {
+      state.updateEmployeeInfo.id = payload;
+    },
     updateEmployeeAction: (
       state: EmployeeStateType,
       {}: PayloadAction<UpdateEmployeeInput>
@@ -103,6 +115,12 @@ const employeeSlice = createSlice({
       state.update.error = payload;
     },
     // delete employee
+    setDeleteEmployeeInfo: (
+      state: EmployeeStateType,
+      { payload }: PayloadAction<number | null>
+    ) => {
+      state.deleteEmployeeInfo.id = payload;
+    },
     deleteEmployeeAction: (
       state: EmployeeStateType,
       {}: PayloadAction<{ empId: number }>
@@ -131,9 +149,11 @@ export const {
   listEmployeesAction,
   listEmployeesSuccessAction,
   listEmployeesErrorAction,
+  setUpdateEmployeeInfo,
   updateEmployeeAction,
   updateEmployeeSuccessAction,
   updateEmployeeErrorAction,
+  setDeleteEmployeeInfo,
   deleteEmployeeAction,
   deleteEmployeeSuccessAction,
   deleteEmployeeErrorAction,
