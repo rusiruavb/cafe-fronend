@@ -7,10 +7,12 @@ import {
   setDeleteCafeInfo,
 } from '../../../redux/cafe/slice';
 import { AgGridReact } from 'ag-grid-react';
-import { Box, Container } from '@mui/material';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import TravelExploreTwoToneIcon from '@mui/icons-material/TravelExploreTwoTone';
 import moment from 'moment';
 import CafeName from '../components/CafeName';
 import CafeAction from '../components/CafeAction';
+import EmojiFoodBeverageTwoToneIcon from '@mui/icons-material/EmojiFoodBeverageTwoTone';
 import { useNonInitialEffect } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
 import CafeDialog from '../../../components/dialog';
@@ -23,6 +25,7 @@ const Cafe: React.FC = () => {
   const [rowData, setRowData] = useState<any[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [deleteCafe, setDeleteCafe] = useState<CafeType>();
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
     dispatch(listCafesAction(''));
@@ -82,9 +85,54 @@ const Cafe: React.FC = () => {
     dispatch(setDeleteCafeInfo(null));
   }, [cafeSlice.delete.data]);
 
+  const handleSearchCTA = () => {
+    dispatch(listCafesAction(searchText));
+  };
+
   return (
     <Container>
       <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: 4,
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
+            <TextField
+              focused
+              variant="filled"
+              label="Search cafe by location"
+              placeholder="New York"
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <Button
+              variant="outlined"
+              startIcon={<TravelExploreTwoToneIcon />}
+              color="info"
+              style={{ marginLeft: 16 }}
+              onClick={() => handleSearchCTA()}
+            >
+              Search
+            </Button>
+          </Box>
+          <Button
+            variant="outlined"
+            color="info"
+            startIcon={<EmojiFoodBeverageTwoToneIcon />}
+            onClick={() => navigate('/cafe/create')}
+          >
+            <Typography style={{ textTransform: 'none' }}>
+              Add new Cafe
+            </Typography>
+          </Button>
+        </Box>
         <div style={{ width: '100%', height: '100%' }}>
           <div id="grid-wrapper" style={{ width: '100%', height: '600px' }}>
             <div
