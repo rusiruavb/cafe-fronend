@@ -83,37 +83,48 @@ const Cafe: React.FC = () => {
   return (
     <div>
       <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>
-        <div className="ag-theme-alpine" style={{ height: 600, width: 1000 }}>
-          <AgGridReact
-            defaultColDef={{ resizable: true }}
-            masterDetail={true}
-            rowData={rowData}
-            columnDefs={[
-              { field: 'name', cellRenderer: CafeName },
-              { field: 'description', width: 300 },
-              { field: 'location', width: 100 },
-              {
-                field: 'employeeCount',
-                headerName: 'Employees',
-                maxWidth: 130,
-                cellRenderer: (props: any) => `${props.value} employees`,
-              },
-              {
-                field: 'createdAt',
-                cellRenderer: (props: any) => moment(props.value).format('LL'),
-              },
-              {
-                field: 'updatedAt',
-                maxWidth: 130,
-                cellRenderer: (props: any) =>
-                  moment(props.value).startOf('hour').fromNow(),
-              },
-              {
-                field: 'actions',
-                cellRenderer: CafeAction,
-              },
-            ]}
-          ></AgGridReact>
+        <div style={{ width: '100%', height: '100%' }}>
+          <div id="grid-wrapper" style={{ width: '100%', height: '600px' }}>
+            <div
+              className="ag-theme-alpine"
+              style={{
+                height: '100%',
+                width: '100%',
+              }}
+            >
+              <AgGridReact
+                defaultColDef={{ resizable: true }}
+                masterDetail={true}
+                rowData={rowData}
+                columnDefs={[
+                  { field: 'name', cellRenderer: CafeName },
+                  { field: 'description', width: 300 },
+                  { field: 'location', width: 100 },
+                  {
+                    field: 'employeeCount',
+                    headerName: 'Employees',
+                    maxWidth: 130,
+                    cellRenderer: (props: any) => `${props.value} employees`,
+                  },
+                  {
+                    field: 'createdAt',
+                    cellRenderer: (props: any) =>
+                      moment(props.value).format('LL'),
+                  },
+                  {
+                    field: 'updatedAt',
+                    maxWidth: 130,
+                    cellRenderer: (props: any) =>
+                      moment(props.value).startOf('hour').fromNow(),
+                  },
+                  {
+                    field: 'actions',
+                    cellRenderer: CafeAction,
+                  },
+                ]}
+              ></AgGridReact>
+            </div>
+          </div>
         </div>
       </Box>
 
