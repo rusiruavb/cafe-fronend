@@ -11,12 +11,13 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import TravelExploreTwoToneIcon from '@mui/icons-material/TravelExploreTwoTone';
 import moment from 'moment';
 import CafeName from '../components/CafeName';
-import CafeAction from '../components/CafeAction';
+import TableAction from '../../../components/tableaction';
 import EmojiFoodBeverageTwoToneIcon from '@mui/icons-material/EmojiFoodBeverageTwoTone';
 import { useNonInitialEffect } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
 import CafeDialog from '../../../components/dialog';
 import { CafeType } from '../../../redux/cafe/types';
+import { Screen } from '../../../types';
 
 const Cafe: React.FC = () => {
   const navigate = useNavigate();
@@ -169,7 +170,10 @@ const Cafe: React.FC = () => {
                   },
                   {
                     field: 'actions',
-                    cellRenderer: CafeAction,
+                    cellRenderer: TableAction,
+                    cellRendererParams: {
+                      screen: Screen.CAFE,
+                    },
                   },
                 ]}
               ></AgGridReact>
