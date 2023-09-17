@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../../redux/root.reducer';
 import { AgGridReact } from 'ag-grid-react';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import moment from 'moment';
 import TableAction from '../../../components/tableaction';
 import { useNonInitialEffect } from '../../../hooks';
@@ -85,10 +85,10 @@ const EmployeeList: React.FC = () => {
   }, [employeeSlice.delete.data]);
 
   return (
-    <div>
+    <Container>
       <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>
         <div style={{ width: '100%', height: '100%' }}>
-          <div id="grid-wrapper" style={{ width: '100%', height: '600px' }}>
+          <div id="grid-wrapper" style={{ width: '100%', height: '70vh' }}>
             <div
               style={{
                 height: '100%',
@@ -141,7 +141,7 @@ const EmployeeList: React.FC = () => {
           handleDialogClose={handleDialogClose}
         />
       )}
-    </div>
+    </Container>
   );
 };
 

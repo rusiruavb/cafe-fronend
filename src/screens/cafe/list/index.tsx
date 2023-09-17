@@ -7,7 +7,7 @@ import {
   setDeleteCafeInfo,
 } from '../../../redux/cafe/slice';
 import { AgGridReact } from 'ag-grid-react';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import moment from 'moment';
 import CafeName from '../components/CafeName';
 import CafeAction from '../components/CafeAction';
@@ -49,7 +49,9 @@ const Cafe: React.FC = () => {
   }, [cafeSlice.list.data]);
 
   useNonInitialEffect(() => {
-    navigate('/cafe/update');
+    if (cafeSlice.updateCafeInfo.id) {
+      navigate('/cafe/update');
+    }
   }, [cafeSlice.updateCafeInfo.id]);
 
   useNonInitialEffect(() => {
@@ -81,7 +83,7 @@ const Cafe: React.FC = () => {
   }, [cafeSlice.delete.data]);
 
   return (
-    <div>
+    <Container>
       <Box sx={{ paddingTop: 5, paddingBottom: 5 }}>
         <div style={{ width: '100%', height: '100%' }}>
           <div id="grid-wrapper" style={{ width: '100%', height: '600px' }}>
@@ -139,7 +141,7 @@ const Cafe: React.FC = () => {
           handleDialogClose={handleDialogClose}
         />
       )}
-    </div>
+    </Container>
   );
 };
 
