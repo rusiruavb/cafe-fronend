@@ -250,7 +250,10 @@ const EmployeeForm: React.FC = () => {
                 <FormLabel>Gender</FormLabel>
                 <RadioGroup
                   row
-                  {...register('gender', { required: 'Gender is required' })}
+                  {...register('gender', {
+                    value: employee?.gender,
+                    required: 'Gender is required',
+                  })}
                 >
                   <FormControlLabel
                     value="male"
