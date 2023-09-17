@@ -28,6 +28,7 @@ import { EmployeeType } from '../../../redux/employee/types';
 import {
   createEmployeeAction,
   setUpdateEmployeeInfo,
+  updateEmployeeAction,
 } from '../../../redux/employee/slice';
 import { listCafesAction } from '../../../redux/cafe/slice';
 import dayjs from 'dayjs';
@@ -86,8 +87,6 @@ const EmployeeForm: React.FC = () => {
 
   const onSubmitHandler = (values: any) => {
     if (mode === NavigationMode.CREATE) {
-      // TODO: add create employee dispatch
-      console.log(values, startDate.toString());
       dispatch(
         createEmployeeAction({
           firstName: values.firstName,
@@ -96,7 +95,7 @@ const EmployeeForm: React.FC = () => {
           phoneNumber: values.phoneNumber,
           gender: values.gender,
           cafeId: values.cafe,
-          startDate: startDate.toString(),
+          startDate: startDate.format('YYYY-MM-DD'),
         })
       );
       return;
@@ -104,7 +103,20 @@ const EmployeeForm: React.FC = () => {
 
     if (mode === NavigationMode.UPDATE) {
       if (employee) {
-        // TODO: add update employee dispatch
+        if (employeeSlice.updateEmployeeInfo.id) {
+          dispatch(
+            updateEmployeeAction({
+              empId: employeeSlice.updateEmployeeInfo.id,
+              firstName: values.firstName,
+              lastName: values.lastName,
+              email: values.email,
+              phoneNumber: values.phoneNumber,
+              gender: values.gender,
+              cafeId: values.cafe,
+              startDate: startDate.format('YYYY-MM-DD'),
+            })
+          );
+        }
       }
 
       return;
