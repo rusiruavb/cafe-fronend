@@ -73,7 +73,7 @@ const Header: React.FC = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
-              onClick={() => handleMenuItemClick('cafes')}
+              onClick={() => handleMenuItemClick('')}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               Cafes

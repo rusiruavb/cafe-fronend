@@ -8,6 +8,7 @@ const Footer: React.FC = () => {
   return (
     <Box
       sx={{
+        marginTop: 'auto',
         backgroundColor: (theme) =>
           theme.palette.mode === 'light'
             ? theme.palette.grey[200]

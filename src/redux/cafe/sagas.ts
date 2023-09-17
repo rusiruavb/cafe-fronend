@@ -24,9 +24,20 @@ import {
 
 function* createCafe({ payload }: PayloadAction<CreateCafeInput>) {
   try {
+    const formData = new FormData();
+    formData.append('name', payload.name);
+    formData.append('description', payload.description);
+    formData.append('location', payload.location);
+    formData.append('logo', payload.logo[0]);
+
     const response: AxiosResponse<CafeType> = yield axios.post(
       `${process.env.REACT_APP_API_ENDPOINT}/cafe`,
-      payload
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
     );
 
     yield put(createCafeSuccessAction(response.data));
