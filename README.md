@@ -45,7 +45,7 @@ docker build -t cafe-frontend-app:v1.0.0 .
 4. Once the Docker image is built, run the following command to start the aplication via Docker container
 
 ```
-docker run --name cafe-fronend -p 3000:3000 cafe-frontend-app
+docker run --name cafe-fronend -p 3000:3000 cafe-frontend-app:v1.0.0
 ```
 
 5. Finally, the application will run on port 3000. Access the application via [this](http://localhost:3000) link
