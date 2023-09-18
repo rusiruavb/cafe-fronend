@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import Header from '../screens/common/Header';
-import Footer from '../screens/common/Footer';
-import Employee from '../screens/employee/list';
+import Header from '../screens/Common/Header';
+import Footer from '../screens/Common/Footer';
+import Employee from '../screens/Employee/list';
 import Cafe from '../screens/Cafe/list';
 import UpdateCafe from '../screens/Cafe/form';
 import { Box } from '@mui/material';
-import EmployeeForm from '../screens/employee/form';
+import EmployeeForm from '../screens/Employee/form';
 
 const Navigator: React.FC = () => {
   return (
