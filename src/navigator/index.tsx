@@ -5,8 +5,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Header from '../screens/common/Header';
 import Footer from '../screens/common/Footer';
 import Employee from '../screens/employee/list';
-import Cafe from '../screens/cafe/list';
-import UpdateCafe from '../screens/cafe/form';
+import Cafe from '../screens/Cafe/list';
+import UpdateCafe from '../screens/Cafe/form';
 import { Box } from '@mui/material';
 import EmployeeForm from '../screens/employee/form';
 

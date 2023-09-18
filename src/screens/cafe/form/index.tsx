@@ -15,8 +15,8 @@ import {
   UploadFileTwoTone,
   CancelTwoTone,
 } from '@mui/icons-material';
-import TextInput from '../../../components/textfield';
-import CafeDialog from '../../../components/dialog';
+import TextInput from '../../../components/TextInput';
+import CafeDialog from '../../../components/CafeDialog';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../../redux/root.reducer';
 import { useNonInitialEffect } from '../../../hooks';

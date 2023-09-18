@@ -6,10 +6,10 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import PersonAddAltTwoToneIcon from '@mui/icons-material/PersonAddAltTwoTone';
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import moment from 'moment';
-import TableAction from '../../../components/tableaction';
+import TableAction from '../../../components/TableAction';
 import { useNonInitialEffect } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
-import CafeDialog from '../../../components/dialog';
+import CafeDialog from '../../../components/CafeDialog';
 import { Screen } from '../../../types';
 import { EmployeeType } from '../../../redux/employee/types';
 import {

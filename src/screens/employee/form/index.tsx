@@ -20,8 +20,8 @@ import {
 import LoadingButton from '@mui/lab/LoadingButton';
 import { UploadFileTwoTone, CancelTwoTone } from '@mui/icons-material';
 import { NavigationMode } from '../../../types';
-import TextInput from '../../../components/textfield';
-import CafeDialog from '../../../components/dialog';
+import TextInput from '../../../components/TextInput';
+import CafeDialog from '../../../components/CafeDialog';
 import { StateType } from '../../../redux/root.reducer';
 import { useNonInitialEffect } from '../../../hooks';
 import { EmployeeType } from '../../../redux/employee/types';

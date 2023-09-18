@@ -11,11 +11,11 @@ import { Box, Button, Container, TextField, Typography } from '@mui/material';
 import TravelExploreTwoToneIcon from '@mui/icons-material/TravelExploreTwoTone';
 import moment from 'moment';
 import CafeName from '../components/CafeName';
-import TableAction from '../../../components/tableaction';
+import TableAction from '../../../components/TableAction';
 import EmojiFoodBeverageTwoToneIcon from '@mui/icons-material/EmojiFoodBeverageTwoTone';
 import { useNonInitialEffect } from '../../../hooks';
 import { useNavigate } from 'react-router-dom';
-import CafeDialog from '../../../components/dialog';
+import CafeDialog from '../../../components/CafeDialog';
 import { CafeType } from '../../../redux/cafe/types';
 import { Screen } from '../../../types';
 
